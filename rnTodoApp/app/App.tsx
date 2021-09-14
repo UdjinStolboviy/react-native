@@ -13,6 +13,7 @@ import {Navbar} from './components/Navbar';
 
 import {MainScreen} from './screens/MainScreen';
 import {TodoScreen} from './screens/TodoScreen';
+import {THEME} from './theme';
 
 const App = () => {
   const [todoId, setTodoId] = useState(null);
@@ -99,7 +100,7 @@ const App = () => {
 
 const styles = StyleSheet.create({
   conteiner: {
-    paddingHorizontal: 30,
+    paddingHorizontal: THEME.PADDING_HORIZONTAL,
     paddingVertical: 20,
   },
 });

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, Dimensions} from 'react-native';
 import {THEME} from '../theme';
 import {AppCart} from '../ui/AppCarts';
 import {AppTextBold} from '../ui/AppTextBold';
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     padding: 15,
   },
   button: {
-    width: '40%',
+    width: Dimensions.get('window').width / 3,
   },
   title: {
     fontSize: 20,
