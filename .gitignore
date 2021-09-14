@@ -38,8 +38,16 @@ bower_components
 build/Release
 
 # Dependency directories
-node_modules/
-jspm_packages/
+reactNative/node_modules/
+rnTodoApp/node_modules/
+reactNative/jspm_packages/
+rnTodoApp/jspm_packages/
+reactNative/android/
+rnTodoApp/android/
+reactNative/ios/
+rnTodoApp/ios/
+
+
 
 # TypeScript v1 declaration files
 typings/
