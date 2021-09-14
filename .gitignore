@@ -42,10 +42,10 @@ reactNative/node_modules/
 rnTodoApp/node_modules/
 reactNative/jspm_packages/
 rnTodoApp/jspm_packages/
-reactNative/android/
+<!-- reactNative/android/
 rnTodoApp/android/
 reactNative/ios/
-rnTodoApp/ios/
+rnTodoApp/ios/ -->
 
 
 
