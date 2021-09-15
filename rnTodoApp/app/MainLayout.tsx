@@ -1,14 +1,16 @@
-import React, {useState, useContext} from 'react';
+import React, {useContext} from 'react';
 import {View, StyleSheet} from 'react-native';
 import {Navbar} from './components/Navbar';
 import {TodoContext} from './context/todo/todoContext';
 import {MainScreen} from './screens/MainScreen';
 import {TodoScreen} from './screens/TodoScreen';
 import {THEME} from './theme';
+import {ScreenContext} from './context/screen/screenContext';
 
 export const MainLayout = () => {
   const {todos, addTodo, removeTodo, updateTodo} = useContext(TodoContext);
-  const [todoId, setTodoId] = useState(null);
+  const {todoId, changeScreen} = useContext(ScreenContext);
+  //const [todoId, setTodoId] = useState(null);
   //const [todos, setTodos] = useState([]);
 
   //   const addTodo = (title: string) => {
@@ -67,7 +69,7 @@ export const MainLayout = () => {
       addTodo={addTodo}
       removeTodo={removeTodo}
       openTodo={id => {
-        setTodoId(id);
+        changeScreen(id);
       }}
     />
   );
@@ -77,7 +79,7 @@ export const MainLayout = () => {
       <TodoScreen
         onSeve={updateTodo}
         onRemove={removeTodo}
-        goBack={() => setTodoId(null)}
+        goBack={() => changeScreen(null)}
         todo={selectedToDo}
       />
     );
