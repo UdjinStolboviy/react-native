@@ -33,7 +33,7 @@ const style = StyleSheet.create({
     borderBottomWidth: 1,
   },
   text: {
-    color: Platform.OS === 'ios' ? THEME.GREY_COLOR : '#FFFF  ',
+    color: Platform.OS === 'ios' ? THEME.GREY_COLOR : '#FFFF',
     fontSize: 20,
   },
 });
