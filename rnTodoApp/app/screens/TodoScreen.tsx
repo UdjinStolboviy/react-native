@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {StyleSheet, View, Dimensions} from 'react-native';
 import {THEME} from '../theme';
 import {AppCart} from '../ui/AppCarts';
@@ -7,11 +7,18 @@ import {EditModal} from './EditModal';
 import {AppButton} from '../ui/AppButton';
 //import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {TodoContext} from '../context/todo/todoContext';
+import {ScreenContext} from '../context/screen/screenContext';
 
-export const TodoScreen = ({goBack, todo, onRemove, onSeve}) => {
+export const TodoScreen = () => {
+  const {todos, updateTodo, removeTodo} = useContext(TodoContext);
+  const {todoId, changeScreen} = useContext(ScreenContext);
   const [modal, setModal] = useState(false);
+
+  const todo = todos.find(t => t.id === todoId);
+
   const saveHandler = title => {
-    onSeve(todo.id, title);
+    updateTodo(todo.id, title);
     setModal(false);
   };
 
@@ -32,14 +39,16 @@ export const TodoScreen = ({goBack, todo, onRemove, onSeve}) => {
 
       <View style={styles.buttons}>
         <View style={styles.button}>
-          <AppButton color={THEME.GREY_COLOR} onPress={goBack}>
+          <AppButton
+            color={THEME.GREY_COLOR}
+            onPress={() => changeScreen(null)}>
             <Icon name="chevron-left" size={18} color="#fff" />
           </AppButton>
         </View>
         <View style={styles.button}>
           <AppButton
             color={THEME.DANGER_COLOR}
-            onPress={() => onRemove(todo.id)}>
+            onPress={() => removeTodo(todo.id)}>
             <Icon name="archive" size={18} color="#fff" />
           </AppButton>
         </View>
